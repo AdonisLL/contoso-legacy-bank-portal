@@ -42,6 +42,8 @@ Service URLs can be changed in `src\Contoso.LegacyBank.Portal\App.config`.
 
 ## Manual smoke test
 
+![Contoso Legacy Bank customer service portal](docs/images/portal-customer-search.png)
+
 1. Start both local backend services and verify ports 8090 and 8091 are listening.
 2. Launch the portal and choose a demo login.
 3. Search for `CUST-1001`; verify customer details and at least one account render.
