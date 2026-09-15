@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contoso.LegacyBank.Portal", "src\Contoso.LegacyBank.Portal\Contoso.LegacyBank.Portal.csproj", "{2F73555B-F21C-40EB-B77F-B6BE3702023E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contoso.LegacyBank.Portal.Tests", "tests\Contoso.LegacyBank.Portal.Tests\Contoso.LegacyBank.Portal.Tests.csproj", "{D86E09CD-4445-42A5-BDA4-8A2F98C34388}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F73555B-F21C-40EB-B77F-B6BE3702023E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F73555B-F21C-40EB-B77F-B6BE3702023E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F73555B-F21C-40EB-B77F-B6BE3702023E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F73555B-F21C-40EB-B77F-B6BE3702023E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D86E09CD-4445-42A5-BDA4-8A2F98C34388}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D86E09CD-4445-42A5-BDA4-8A2F98C34388}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D86E09CD-4445-42A5-BDA4-8A2F98C34388}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D86E09CD-4445-42A5-BDA4-8A2F98C34388}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

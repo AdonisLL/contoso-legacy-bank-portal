@@ -1,0 +1,25 @@
+name: Windows CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: nuget/setup-nuget@v2
+      - uses: microsoft/setup-msbuild@v2
+      - name: Restore packages
+        run: nuget restore .\Contoso.LegacyBank.Portal.sln -NonInteractive
+      - name: Build
+        run: msbuild .\Contoso.LegacyBank.Portal.sln /m /p:Configuration=Release /p:ContinuousIntegrationBuild=true
+      - name: Test
+        shell: pwsh
+        run: |
+          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          $vstest = & $vswhere -latest -products * -requires Microsoft.VisualStudio.PackageGroup.TestTools.Core -find Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe | Select-Object -First 1
+          if (-not $vstest) { throw "vstest.console.exe was not found." }
+          & $vstest .\tests\Contoso.LegacyBank.Portal.Tests\bin\Release\Contoso.LegacyBank.Portal.Tests.dll
