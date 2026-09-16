@@ -24,7 +24,7 @@
       "Name": "Insufficient Logging",
       "Category": "Credentials & Secrets",
       "Severity": "potential",
-      "StoryPoint": "3",
+      "StoryPoint": 3,
       "Description": "When a security-critical event occurs, the product either does not record the event or omits important details about the event when logging it.",
       "Files": [
         "src/Contoso.LegacyBank.Portal/UI/MainForm.cs"
@@ -36,7 +36,7 @@
       "Name": "Improper Control of Resource Identifiers ('Resource Injection')",
       "Category": "Injection Attacks",
       "Severity": "potential",
-      "StoryPoint": "3",
+      "StoryPoint": 3,
       "Description": "The product receives input from an upstream component, but it does not restrict or incorrectly restricts the input before it is used as an identifier for a resource that may be outside the intended sphere of control.",
       "Files": [
         "src/Contoso.LegacyBank.Portal/Presentation/PortalRules.cs",

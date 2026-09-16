@@ -337,7 +337,7 @@
         ],
         "explanation": "MainForm performs customer searches, transaction retrieval, statement requests, status refreshes, and statement opening at lines 332-470, but records outcomes only in transient UI labels and message boxes; no durable audit log captures these security-sensitive banking operations."
       },
-      "storyPoint": "3"
+      "storyPoint": 3
     },
     {
       "id": "CWE-99",
@@ -352,7 +352,7 @@
         ],
         "explanation": "PortalRules.TryGetDocumentUri accepts a statement-service-controlled rooted file path or arbitrary HTTP(S) URL at lines 77-99, and MainForm.OpenStatement launches that resource through Process.Start with shell execution at lines 458-468."
       },
-      "storyPoint": "3"
+      "storyPoint": 3
     }
   ]
 }
