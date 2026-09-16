@@ -323,5 +323,37 @@
       ],
       "labels": []
     }
-  }
+  },
+  "security": [
+    {
+      "id": "CWE-778",
+      "title": "Insufficient Logging",
+      "category": "Credentials & Secrets",
+      "severity": "potential",
+      "description": "When a security-critical event occurs, the product either does not record the event or omits important details about the event when logging it.",
+      "evidence": {
+        "files": [
+          "src/Contoso.LegacyBank.Portal/UI/MainForm.cs:306",
+          "src/Contoso.LegacyBank.Portal/UI/MainForm.cs:477"
+        ],
+        "explanation": "MainForm.ConfigureEvents treats selecting a demo login as the sign-in transition and enables access to customer search/actions without writing any audit record. RunServiceCall handles rejected account service requests and statement failures by updating UI labels or message boxes, but the production source contains no logging sink or audit event for these security-relevant access and failure events."
+      },
+      "storyPoint": 3
+    },
+    {
+      "id": "CWE-99",
+      "title": "Improper Control of Resource Identifiers ('Resource Injection')",
+      "category": "Injection Attacks",
+      "severity": "potential",
+      "description": "The product receives input from an upstream component, but it does not restrict or incorrectly restricts the input before it is used as an identifier for a resource that may be outside the intended sphere of control.",
+      "evidence": {
+        "files": [
+          "src/Contoso.LegacyBank.Portal/Presentation/PortalRules.cs:77",
+          "src/Contoso.LegacyBank.Portal/UI/MainForm.cs:450"
+        ],
+        "explanation": "StatementResult.PdfUrl is received from the statement service and passed to PortalRules.TryGetDocumentUri, which accepts any rooted local file path or absolute HTTP/HTTPS URI. MainForm.OpenStatementPdf then passes the resulting URI to Process.Start with shell execution, so an upstream service response controls the local or remote document resource opened by the client."
+      },
+      "storyPoint": 3
+    }
+  ]
 }

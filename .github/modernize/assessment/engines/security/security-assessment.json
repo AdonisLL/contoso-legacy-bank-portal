@@ -1,0 +1,49 @@
+{
+  "GeneratedAt": "2026-09-16T00:50:06.0000000Z",
+  "ProjectPath": ".",
+  "Summary": {
+    "TotalFindings": 2,
+    "CveCount": 0,
+    "CweCount": 2,
+    "BySeverity": {
+      "mandatory": 0,
+      "optional": 0,
+      "potential": 2
+    },
+    "ByCategory": {
+      "Credentials & Secrets": 1,
+      "Injection Attacks": 1
+    },
+    "TotalRulesAssessed": 59,
+    "RulesPassed": 57
+  },
+  "CveFindings": [],
+  "CweFindings": [
+    {
+      "Id": "CWE-778",
+      "Name": "Insufficient Logging",
+      "Category": "Credentials & Secrets",
+      "Severity": "potential",
+      "StoryPoint": 3,
+      "Description": "When a security-critical event occurs, the product either does not record the event or omits important details about the event when logging it.",
+      "Files": [
+        "src/Contoso.LegacyBank.Portal/UI/MainForm.cs:306",
+        "src/Contoso.LegacyBank.Portal/UI/MainForm.cs:477"
+      ],
+      "Explanation": "MainForm.ConfigureEvents treats selecting a demo login as the sign-in transition and enables access to customer search/actions without writing any audit record. RunServiceCall handles rejected account service requests and statement failures by updating UI labels or message boxes, but the production source contains no logging sink or audit event for these security-relevant access and failure events."
+    },
+    {
+      "Id": "CWE-99",
+      "Name": "Improper Control of Resource Identifiers ('Resource Injection')",
+      "Category": "Injection Attacks",
+      "Severity": "potential",
+      "StoryPoint": 3,
+      "Description": "The product receives input from an upstream component, but it does not restrict or incorrectly restricts the input before it is used as an identifier for a resource that may be outside the intended sphere of control.",
+      "Files": [
+        "src/Contoso.LegacyBank.Portal/Presentation/PortalRules.cs:77",
+        "src/Contoso.LegacyBank.Portal/UI/MainForm.cs:450"
+      ],
+      "Explanation": "StatementResult.PdfUrl is received from the statement service and passed to PortalRules.TryGetDocumentUri, which accepts any rooted local file path or absolute HTTP/HTTPS URI. MainForm.OpenStatementPdf then passes the resulting URI to Process.Start with shell execution, so an upstream service response controls the local or remote document resource opened by the client."
+    }
+  ]
+}
