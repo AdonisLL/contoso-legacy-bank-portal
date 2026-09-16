@@ -5,8 +5,8 @@
 | Metric | Value |
 |--------|-------|
 | Total Issues | 4 |
-| Mandatory Blockers | 1 |
-| Potential Issues | 2 |
+| Mandatory Blockers | 2 |
+| Potential Issues | 1 |
 
 ## Component Information
 
