@@ -34,18 +34,20 @@
   "summary": {
     "totalProjects": 2,
     "totalIssues": 5,
-    "totalIncidents": 4,
-    "totalEffort": 6,
+    "totalIncidents": 6,
+    "totalEffort": 11,
     "charts": {
       "severity": {
-        "mandatory": 2,
+        "mandatory": 1,
         "optional": 1,
-        "potential": 1,
+        "potential": 3,
         "information": 0
       },
       "category": {
         "Security": 1,
-        "Local": 3
+        "Local": 2,
+        "Injection Attacks": 1,
+        "Credentials & Secrets": 1
       }
     }
   },
