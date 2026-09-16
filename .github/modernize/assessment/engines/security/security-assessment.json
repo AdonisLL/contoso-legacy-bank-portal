@@ -1,0 +1,48 @@
+{
+  "GeneratedAt": "2026-09-16T04:27:05.038280Z",
+  "ProjectPath": ".",
+  "Summary": {
+    "TotalFindings": 2,
+    "CveCount": 0,
+    "CweCount": 2,
+    "BySeverity": {
+      "mandatory": 0,
+      "optional": 0,
+      "potential": 2
+    },
+    "ByCategory": {
+      "Credentials & Secrets": 1,
+      "Injection Attacks": 1
+    },
+    "TotalRulesAssessed": 59,
+    "RulesPassed": 57
+  },
+  "CveFindings": [],
+  "CweFindings": [
+    {
+      "Id": "CWE-778",
+      "Name": "Insufficient Logging",
+      "Category": "Credentials & Secrets",
+      "Severity": "potential",
+      "StoryPoint": "3",
+      "Description": "When a security-critical event occurs, the product either does not record the event or omits important details about the event when logging it.",
+      "Files": [
+        "src/Contoso.LegacyBank.Portal/UI/MainForm.cs"
+      ],
+      "Explanation": "MainForm performs customer searches, transaction retrieval, statement requests, status refreshes, and statement opening at lines 332-470, but records outcomes only in transient UI labels and message boxes; no durable audit log captures these security-sensitive banking operations."
+    },
+    {
+      "Id": "CWE-99",
+      "Name": "Improper Control of Resource Identifiers ('Resource Injection')",
+      "Category": "Injection Attacks",
+      "Severity": "potential",
+      "StoryPoint": "3",
+      "Description": "The product receives input from an upstream component, but it does not restrict or incorrectly restricts the input before it is used as an identifier for a resource that may be outside the intended sphere of control.",
+      "Files": [
+        "src/Contoso.LegacyBank.Portal/Presentation/PortalRules.cs",
+        "src/Contoso.LegacyBank.Portal/UI/MainForm.cs"
+      ],
+      "Explanation": "PortalRules.TryGetDocumentUri accepts a statement-service-controlled rooted file path or arbitrary HTTP(S) URL at lines 77-99, and MainForm.OpenStatement launches that resource through Process.Start with shell execution at lines 458-468."
+    }
+  ]
+}
